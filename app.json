@@ -1,0 +1,26 @@
+{
+  "id": "691df814-2c4c-4356-8aac-bf72cb42429e",
+  "name": "Customer Loyality",
+  "publisher": "BrucePac",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "Customer Loyalty program by BrucePac",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "./Resources/Logo.png",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "14.0.0.0",
+  "application": "14.0.0.0",
+  "idRanges": [
+    {
+      "from": 50200,
+      "to": 50249
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://ALProject1.com/help/",
+  "showMyCode": true,
+  "runtime": "3.2"
+}
