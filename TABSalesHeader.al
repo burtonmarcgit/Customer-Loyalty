@@ -22,7 +22,7 @@ tableextension 50202 "Sales Invoce Header" extends "Sales Invoice Header"
             DataClassification = CustomerContent;
             OptionMembers = Bronze,Silver,Gold;
             Caption = 'Loalty Status';
-            Editable = false
+            Editable = false;
         }
 
     }
