@@ -27,7 +27,19 @@ pageextension 50200 "Customer Card.SUFFIX" extends "Customer Card"
                 runobject = page "Loyalty Ledger Entries.SUFFIX";
                 runpagelink = "Customer No" = field ("no.");
             }
-
+            action(LoyaltyDetail)
+            {
+                Caption = 'Loyalty Detailed Report';
+                Image = Report;
+                trigger OnAction()
+                var
+                    cust: Record Customer;
+                begin
+                    cust := rec;
+                    cust.SetRecFilter();
+                    Report.RunModal(Report::"Cust Loyalty Detail", true, false, cust);
+                end;
+            }
         }
     }
 
@@ -49,6 +61,19 @@ pageextension 50203 "customer List" extends "customer List"
                 Image = LedgerEntries;
                 RunObject = page "Loyalty Ledger Entries.SUFFIX";
                 RunPageLink = "Customer No" = field ("no.");
+            }
+            action(LoyaltyDetail)
+            {
+                Caption = 'Loyalty Detailed Report';
+                Image = Report;
+                trigger OnAction()
+                var
+                    cust: Record Customer;
+                begin
+                    cust := rec;
+                    cust.SetRecFilter();
+                    Report.RunModal(Report::"Cust Loyalty Detail", true, false, cust);
+                end;
             }
         }
     }
