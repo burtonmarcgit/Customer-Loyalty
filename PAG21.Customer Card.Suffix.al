@@ -40,7 +40,7 @@ pageextension 50200 "Customer Card.SUFFIX" extends "Customer Card"
                     Report.RunModal(Report::"Cust Loyalty Detail", true, false, cust);
                 end;
             }
-            action(xmlport)
+            action(xmlportDetail)
             {
                 caption = 'XML Loyalty Data';
                 image = XMLFile;
@@ -86,7 +86,7 @@ pageextension 50203 "customer List" extends "customer List"
                     Report.RunModal(Report::"Cust Loyalty Detail", true, false, cust);
                 end;
             }
-            action(xmlport)
+            action(xmlportDetail)
             {
                 caption = 'XML Loyalty Data';
                 image = XMLFile;
