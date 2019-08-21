@@ -9,10 +9,21 @@ codeunit 50201 "Loyalty Mgmt"
         ledger."Posting Date" := postDate;
         // 1 Point for every 5 dollars spent 
         ledger."Points Earned" := invAmt;
-        ledger.Insert(true)
+        ledger.Insert(true);
 
     end;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post", 'OnAfterPostSalesDoc', '', true, false)]
+    local procedure MyProcedure(VAR SalesHeader: Record "Sales Header"; VAR GENJnlPostLine: Codeunit "Gen. Jnl.-Post Line"; SalesShptHdrNo: Code[20]; RetRcpHdrNo: Code[20]; SalesInvHdrNo: Code[20]; SalesCrMemoHdrNo: Code[20]; CommitIsSuppressed: Boolean)
+
     var
-        myInt: Integer;
+        loyaltyMgmt: Codeunit "Loyalty Mgmt";
+        salesInvHeader: Record "Sales Invoice Header";
+    begin
+        if salesInvHeader.get(SalesInvHdrNo) then begin
+            salesInvHeader.CalcFields("Amount Including VAT");
+            loyaltyMgmt.AddLoyaltyPoints(salesInvHeader."Sell-to Customer No.", salesInvHeader."No.", salesInvHeader."Posting Date", salesInvHeader."Amount Including VAT");
+        end;
+    end;
+
 }

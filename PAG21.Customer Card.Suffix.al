@@ -34,3 +34,22 @@ pageextension 50200 "Customer Card.SUFFIX" extends "Customer Card"
     var
         myInt: Integer;
 }
+
+pageextension 50203 "customer List" extends "customer List"
+{
+
+    actions
+    {
+        // Add changes to page actions here
+        addlast(History)
+        {
+            action(Loyalty)
+            {
+                Caption = 'Loyalty Points';
+                Image = LedgerEntries;
+                RunObject = page "Loyalty Ledger Entries.SUFFIX";
+                RunPageLink = "Customer No" = field ("no.");
+            }
+        }
+    }
+}

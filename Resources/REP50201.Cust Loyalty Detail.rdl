@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="cust_LBL">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>cust_LBL</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>cust_LBL</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="DocNo_LBL">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>DocNo_LBL</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>DocNo_LBL</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Date_LBL">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Date_LBL</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Date_LBL</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Amt_LBL">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Amt_LBL</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Amt_LBL</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Points_LBL">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Points_LBL</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Points_LBL</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="Title_LBL">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Title_LBL</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Title_LBL</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="custno">
+          <DataField>custno</DataField>
+        </Field>
+        <Field Name="custname">
+          <DataField>custname</DataField>
+        </Field>
+        <Field Name="Document_No">
+          <DataField>Document_No</DataField>
+        </Field>
+        <Field Name="Posting_Date">
+          <DataField>Posting_Date</DataField>
+        </Field>
+        <Field Name="Points_Earned">
+          <DataField>Points_Earned</DataField>
+        </Field>
+        <Field Name="invAmt">
+          <DataField>invAmt</DataField>
+        </Field>
+        <Field Name="invAmtFormat">
+          <DataField>invAmtFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
