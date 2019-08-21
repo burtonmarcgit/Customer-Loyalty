@@ -2,6 +2,8 @@ xmlport 50200 "Export Loyalty Data"
 {
     UseRequestPage = false;
     Direction = Export;
+    Format = Xml;
+
     schema
     {
         textelement(NodeName1)
