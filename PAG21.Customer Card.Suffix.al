@@ -42,7 +42,7 @@ pageextension 50200 "Customer Card.SUFFIX" extends "Customer Card"
             }
             action(xmlport)
             {
-                caption = 'Loyalty Data';
+                caption = 'XML Loyalty Data';
                 image = XMLFile;
 
                 trigger OnAction()
@@ -82,13 +82,13 @@ pageextension 50203 "customer List" extends "customer List"
                     cust: Record Customer;
                 begin
                     cust := rec;
-                    cust.SetRecFilter();
+                    cust.SetRecFilter();5
                     Report.RunModal(Report::"Cust Loyalty Detail", true, false, cust);
                 end;
             }
             action(xmlport)
             {
-                caption = 'Loyalty Data';
+                caption = 'XML Loyalty Data';
                 image = XMLFile;
 
                 trigger OnAction()
