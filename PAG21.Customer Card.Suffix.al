@@ -82,7 +82,7 @@ pageextension 50203 "customer List" extends "customer List"
                     cust: Record Customer;
                 begin
                     cust := rec;
-                    cust.SetRecFilter();5
+                    cust.SetRecFilter();
                     Report.RunModal(Report::"Cust Loyalty Detail", true, false, cust);
                 end;
             }
