@@ -75,6 +75,23 @@ pageextension 50203 "customer List" extends "customer List"
                     Report.RunModal(Report::"Cust Loyalty Detail", true, false, cust);
                 end;
             }
+            action(xmlport)
+            {
+                caption = 'Loyalty Data';
+                image = XMLFile;
+
+
+                trigger OnAction()
+                var
+                    cust: Record Customer;
+                begin
+                    cust := rec;
+                    cust.SetRecFilter();
+
+                end;
+            }
+
+
         }
     }
 }
