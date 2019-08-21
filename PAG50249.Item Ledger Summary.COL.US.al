@@ -142,7 +142,7 @@ page 50249 "Item Ledger Summary.COL.US"
         st: DateTime;
         et: DateTime;
         ent: Integer;
-        //qry : Query "Summarize ILE.SUFFIX";          
+        qry: Query "Summarize ILE";
     begin
         st := CurrentDateTime;
 
