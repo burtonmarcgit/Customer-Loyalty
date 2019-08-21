@@ -146,20 +146,20 @@ page 50249 "Item Ledger Summary.COL.US"
     begin
         st := CurrentDateTime;
 
-        // if qry.Open() then begin
-        //     while qry.Read() do begin
-        //         ent += 1;
-        //         Init();
-        //         "Entry No." := ent;
-        //         "Location Code" := qry.Location_Code;
-        //         "Item No." := qry.Item_No_;
-        //         "Unit of Measure Code" := qry.Unit_of_Measure_Code;
-        //         "Lot No." := qry.Lot_No_;
-        //         Quantity := qry.Quantity;
-        //         Insert();
-        //     end;
-        //     qry.Close();
-        // end;
+        if qry.Open() then begin
+            while qry.Read() do begin
+                ent += 1;
+                Init();
+                "Entry No." := ent;
+                "Location Code" := qry.Location_Code;
+                "Item No." := qry.Item_No_;
+                "Unit of Measure Code" := qry.Unit_of_Measure_Code;
+                "Lot No." := qry.Lot_No_;
+                Quantity := qry.Quantity;
+                Insert();
+            end;
+            qry.Close();
+        end;
 
         et := CurrentDateTime;
         Message('Summary took %1', et - st);
