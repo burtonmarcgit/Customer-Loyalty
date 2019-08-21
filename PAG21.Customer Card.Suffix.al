@@ -17,6 +17,18 @@ pageextension 50200 "Customer Card.SUFFIX" extends "Customer Card"
     actions
     {
         // Add changes to page actions here
+
+        addlast(History)
+        {
+            action(loyalty)
+            {
+                caption = 'Loyalty Points';
+                image = LedgerEntries;
+                runobject = page "Loyalty Ledger Entries.SUFFIX";
+                runpagelink = "Customer No" = field ("no.");
+            }
+
+        }
     }
 
     var
